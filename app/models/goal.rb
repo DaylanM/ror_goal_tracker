@@ -1,5 +1,6 @@
 class Goal < ApplicationRecord
-
-validates :target, :author, presence: true
-
+  has_many :usergoals, dependent: :destroy
+  has_many :users, through: :usergoals
+  
+  validates :target, :author, presence: true
 end
